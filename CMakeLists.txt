@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.10)
+project(Comp.Arch.Project2)
+
+set(CMAKE_CXX_STANDARD 20)
+add_definitions(-Wall -Wextra -Wno-deprecated -Werror -pedantic -pedantic-errors -O3 -DNDEBUG)
+find_package(OpenMP REQUIRED)
+add_executable(paos code/aos/paos.cpp)
+add_executable(psoa code/soa/psoa.cpp)
+add_executable(sim-aos code/aos/sim-aos.cpp)
+add_executable(sim-soa code/soa/sim-soa.cpp)
+target_link_libraries(paos PUBLIC OpenMP::OpenMP_CXX)
+target_link_libraries(psoa PUBLIC OpenMP::OpenMP_CXX)
